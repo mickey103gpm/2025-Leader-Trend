@@ -11,6 +11,7 @@
       --card:#ffffff;
       --text:#333;
       --muted:#6b7280;
+      --cta:#1B3C6D;
     }
     body{
       font-family: "Microsoft JhengHei", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans TC", sans-serif;
@@ -35,6 +36,8 @@
     .logo-mark{position:absolute; bottom:10px; right:10px;}
     .logo-mark img{height:30px}
     .muted{color:var(--muted); font-size:.9rem}
+    .guidance{margin-top:1rem; font-size:1rem; font-weight:600; color:var(--primary); text-align:center}
+    .cta-btn{display:inline-block; margin-top:.6rem; padding:.55rem .9rem; border-radius:10px; background:var(--cta); color:#fff; text-decoration:none}
   </style>
 </head>
 <body>
@@ -47,7 +50,7 @@
   <section class="card" id="quiz-section">
     <h2>Step 1：AI 潛能測驗</h2>
     <form id="quizForm">
-      <!-- 題目們 -->
+      <!-- Q1 -->
       <div class="question">
         <p>Q1. 當你聽到「AI 改變工作」時，你最直覺的反應是？</p>
         <div class="options">
@@ -58,7 +61,7 @@
           <label><input type="radio" name="q1" value="倫理守護者"/> E. 擔心它對人性或倫理造成挑戰</label>
         </div>
       </div>
-      <!-- 其他題目照舊省略（保持與前版一致） -->
+      <!-- Q2 -->
       <div class="question">
         <p>Q2. 如果公司給你一個 AI 工具去試用，你會？</p>
         <div class="options">
@@ -69,7 +72,40 @@
           <label><input type="radio" name="q2" value="倫理守護者"/> E. 先研究隱私、安全與公平性</label>
         </div>
       </div>
-      <!-- ... Q3-Q6 保持不變 ... -->
+      <!-- Q3 -->
+      <div class="question">
+        <p>Q3. 在你的團隊中，你最常扮演的角色是？</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="創新者" required/> A. 點子發想者，帶來新創意</label>
+          <label><input type="radio" name="q3" value="策略家"/> B. 規劃者，制定策略與路線</label>
+          <label><input type="radio" name="q3" value="協作推動者"/> C. 溝通橋樑，幫大家整合想法</label>
+          <label><input type="radio" name="q3" value="數據驅動者"/> D. 分析師，提供數據與理性判斷</label>
+          <label><input type="radio" name="q3" value="倫理守護者"/> E. 守門人，提醒大家風險與倫理</label>
+        </div>
+      </div>
+      <!-- Q4 -->
+      <div class="question">
+        <p>Q4. 當需要快速決策時，你最倚賴的是？</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="創新者" required/> A. 靈感與直覺</label>
+          <label><input type="radio" name="q4" value="策略家"/> B. 長遠策略</label>
+          <label><input type="radio" name="q4" value="協作推動者"/> C. 團隊意見</label>
+          <label><input type="radio" name="q4" value="數據驅動者"/> D. 數據與報告</label>
+          <label><input type="radio" name="q4" value="倫理守護者"/> E. 價值與原則</label>
+        </div>
+      </div>
+      <!-- Q5 -->
+      <div class="question">
+        <p>Q5. 你認為 AI 最應該幫助人類的地方是？</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="創新者" required/> A. 開創全新的產品與服務</label>
+          <label><input type="radio" name="q5" value="策略家"/> B. 提升效率與決策品質</label>
+          <label><input type="radio" name="q5" value="協作推動者"/> C. 減少溝通障礙，增強協作</label>
+          <label><input type="radio" name="q5" value="數據驅動者"/> D. 提供科學化依據，避免盲目判斷</label>
+          <label><input type="radio" name="q5" value="倫理守護者"/> E. 協助建立更公平、安全的社會</label>
+        </div>
+      </div>
+      <!-- Q6 -->
       <div class="question">
         <p>Q6. 如果你有一支「AI 個人助理」，你最希望它幫你做什麼？</p>
         <div class="options">
@@ -86,6 +122,9 @@
   </section>
 </main>
 <script>
+  // 粉專連結（請換成你的實際粉專網址）
+  const FANPAGE_URL = 'https://www.facebook.com/GPMTW/?locale=zh_TW';
+
   const descriptions = {
     "創新者":"特質：你擅長打破框架，勇於嘗試新可能，能看見 AI 帶來的嶄新契機。<br/>祝福語：願你的創新視野，成為 「智慧驅動人才策略，佈局未來領導力」 的火花。",
     "策略家":"特質：你重視長遠規劃，能將 AI 納入整體藍圖，帶領組織穩健前行。<br/>祝福語：願你的縝密思維，助力 「AI 引領企業 HR 數位轉型」，讓未來更清晰。",
@@ -106,7 +145,16 @@
     document.getElementById('quizForm').style.display='none';
     const resultBox = document.getElementById('result');
     resultBox.style.display='block';
-    resultBox.innerHTML = `<h3>個人AI 專屬潛能卡片</h3><p><strong>🌟 AI ${resultType}</strong></p><p>${descriptions[resultType]}</p><div class="logo-mark"><img src='https://via.placeholder.com/120x40' alt='logo'></div>`;
+    resultBox.innerHTML = `
+      <h3>個人AI 專屬潛能卡片</h3>
+      <p><strong>🌟 AI ${resultType}</strong></p>
+      <p>${descriptions[resultType]}</p>
+      <div class="guidance">
+        👉 關注松誼企管 粉絲專頁，了解更多人才發展議題<br/>
+        出示關注畫面可與工作人員領取小禮物 🎁<br/>
+        <a class="cta-btn" href="${FANPAGE_URL}" target="_blank" rel="noopener">前往粉絲專頁</a>
+      </div>
+      <div class="logo-mark"><img src='https://via.placeholder.com/120x40' alt='logo'></div>`;
     setTimeout(()=> resultBox.classList.add('show'),50);
     resultBox.scrollIntoView({behavior:'smooth'});
   });
