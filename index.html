@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+ <html lang="zh-Hant">
+ <head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>AI 時代互動遊戲</title>
+ <style>
+ body {
+ font-family: "Microsoft JhengHei", sans-serif;
+ margin: 0;
+ padding: 0;
+ background: #f4f4f4;
+ color: #333;
+ }
+ header {
+ background: #4CAF50;
+ color: white;
+ padding: 1rem;
+ text-align: center;
+ font-size: 1.5rem;
+ }
+ main {
+ padding: 1rem;
+ max-width: 600px;
+ margin: auto;
+ }
+ .step {
+ background: white;
+ border-radius: 8px;
+ padding: 1.5rem;
+ margin-bottom: 1rem;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+ }
+ .step h2 {
+ margin-top: 0;
+ color: #4CAF50;
+ }
+ .step input, .step button {
+ padding: 0.6rem;
+ font-size: 1rem;
+ margin-top: 0.5rem;
+ }
+ input {
+ width: 100%;
+ box-sizing: border-box;
+ }
+ button {
+ background: #4CAF50;
+ color: white;
+ border: none;
+ cursor: pointer;
+ border-radius: 4px;
+ }
+ button:disabled {
+ background: #ccc;
+ cursor: not-allowed;
+ }
+ .ai-response {
+ font-size: 1.2rem;
+ font-weight: bold;
+ color: #333;
+ margin-top: 1rem;
+ padding: 1rem;
+ background: #e8f5e9;
+ border-radius: 6px;
+ }
+ /* Step 2 放大 */
+ .big-highlight {
+ font-size: 1.5rem;
+ font-weight: bold;
+ text-align: center;
+ padding: 1rem;
+ background: #fffae6;
+ border: 2px solid #ffcc80;
+ border-radius: 8px;
+ }
+ /* 管理工具區塊 */
+ .admin-section {
+ margin-top: 2rem;
+ padding: 1rem;
+ background: #eee;
+ border-radius: 8px;
+ font-size: 0.9rem;
+ }
+ </style>
+ </head>
+ <body>
+ 
+ <header>AI 時代互動遊戲</header>
+ 
+ <main>
+ 
+ <!-- Step 1 -->
+ <div class="step" id="step1">
+ <h2>Step 1：填答</h2>
+ <label>在 AI 時代，你覺得最重要的是什麼？</label>
+ <input type="text" id="keywordInput" placeholder="例如：創新、領導、系統思考">
+ <button id="generateBtn">產生 AI 專屬回覆</button>
+ <div id="aiResponse" class="ai-response" style="display:none;"></div>
+ </div>
+ 
+ <!-- Step 2 -->
+ <div class="step" id="step2">
+ <h2>Step 2：出示畫面領獎</h2>
+ <div class="big-highlight">
+ 出示此畫面以及按讚松誼粉絲團畫面即可領獎！
+ </div>
+ </div>
+ 
+ <!-- Step 3 -->
+ <div class="step" id="step3">
+ <h2>Step 3：按讚驗證</h2>
+ <button id="stampBtn">尚未領取</button>
+ </div>
+ 
+ <!-- 管理工具區 -->
+ <div class="admin-section">
+ <h3>進階設定與管理工具</h3>
+ <p>此區塊為主辦方管理使用，參加者可忽略。</p>
+ <button onclick="resetGame()">重設遊戲</button>
+ </div>
+ 
+ </main>
+ 
+ <script>
+ const generateBtn = document.getElementById('generateBtn');
+ const keywordInput = document.getElementById('keywordInput');
+ const aiResponse = document.getElementById('aiResponse');
+ const stampBtn = document.getElementById('stampBtn');
+ 
+ const responses = {
+ "創新": [
+ "未來屬於像你這樣敢想敢做的人！",
+ "創新是打開未來大門的鑰匙！",
+ "敢於嘗試，就是你最大的優勢！"
+ ],
+ "領導": [
+ "真正的領導者，能點亮他人的道路！",
+ "領導是影響力，也是責任！",
+ "你的決策，將改變未來！"
+ ],
+ "系統思考": [
+ "看見全局，才能掌握方向！",
+ "系統思考讓你在變化中找到秩序！",
+ "全盤規劃是成功的第一步！"
+ ],
+ "default": [
+ "你的想法，正塑造著未來！",
+ "每一個觀點，都是時代的火花！",
+ "你的觀點，讓 AI 世界更精彩！"
+ ]
+ };
+ 
+ generateBtn.addEventListener('click', () => {
+ const keyword = keywordInput.value.trim();
+ if (!keyword) {
+ alert("請先輸入一個關鍵詞！");
+ return;
+ }
+ 
+ let replyList = responses[keyword] || responses["default"];
+ let reply = replyList[Math.floor(Math.random() * replyList.length)];
+ aiResponse.textContent = reply;
+ aiResponse.style.display = 'block';
+ });
+ 
+ stampBtn.addEventListener('click', () => {
+ if (stampBtn.classList.contains('on')) {
+ stampBtn.classList.remove('on');
+ stampBtn.textContent = "尚未領取";
+ } else {
+ stampBtn.classList.add('on');
+ stampBtn.textContent = "已領取";
+ }
+ });
+ 
+ function resetGame() {
+ keywordInput.value = "";
+ aiResponse.style.display = "none";
+ stampBtn.classList.remove('on');
+ stampBtn.textContent = "尚未領取";
+ }
+ </script>
+ 
+ </body>
+ </html>
+ 
