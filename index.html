@@ -3,200 +3,232 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>松誼企管 2025 Leader Trend 智慧人才佈局｜精準賦能未來領導者 互動遊戲</title>
+  <title>個人AI專屬潛能卡片</title>
   <style>
-    :root{
-      --primary:#1B3C6D;
-      --bg:#f7f7f8;
-      --card:#ffffff;
-      --text:#333;
-      --muted:#6b7280;
-      --cta:#1B3C6D;
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f0f4ff, #e6e9f0);
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
-    body{
-      font-family: "Microsoft JhengHei", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans TC", sans-serif;
-      margin:0; padding:0; background:var(--bg); color:var(--text);
+
+    h1 {
+      background-color: #4a6fa5;
+      color: white;
+      padding: 20px;
+      margin: 0;
     }
-    header{
-      background:var(--primary); color:#fff; padding:1rem; text-align:center; font-size:1.2rem; font-weight:700;
-      display:flex; align-items:center; justify-content:center; gap:.8rem;
+
+    .container {
+      margin: 20px auto;
+      max-width: 800px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    main{padding:1rem; max-width:720px; margin:auto}
-    .card{background:var(--card); border-radius:14px; padding:1.25rem; margin:1rem 0; box-shadow:0 6px 20px rgba(0,0,0,.06)}
-    .card h2{margin:.2rem 0 1rem; color:var(--primary)}
-    .question{margin-bottom:1rem}
-    .options{margin-top:.5rem}
-    .options label{display:block; margin:.3rem 0; cursor:pointer}
-    button{appearance:none; border:none; background:var(--primary); color:#fff; padding:.65rem 1rem; border-radius:10px; font-size:1rem; cursor:pointer; margin-top:1rem}
-    button:disabled{background:#cbd5e1; cursor:not-allowed}
-    .result-card{margin-top:1.5rem; padding:1.5rem; border:2px solid var(--primary); border-radius:12px; background:#fff; opacity:0; transform:translateY(20px); transition:opacity 0.8s ease, transform 0.8s ease; position:relative}
-    .result-card.show{opacity:1; transform:translateY(0)}
-    .result-card h3{margin-top:0; color:var(--primary)}
-    .logo-mark{position:absolute; bottom:10px; right:10px;}
-    .logo-mark img{height:30px}
-    .muted{color:var(--muted); font-size:.9rem}
-    .guidance{margin-top:1rem; font-size:1rem; font-weight:600; color:var(--primary); text-align:center}
-    .cta-btn{display:inline-block; margin-top:.6rem; padding:.55rem .9rem; border-radius:10px; background:var(--cta); color:#fff; text-decoration:none}
-    .download-wrap{display:none; text-align:center}
-    .download-btn{margin-top:1rem}
+
+    .question {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .question label {
+      display: block;
+      margin: 8px 0;
+    }
+
+    button {
+      background: #4a6fa5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #3b5a84;
+    }
+
+    .card {
+      display: none;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 500px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-in-out;
+    }
+
+    .card.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .logo {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 80px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 16px;
+    }
+
+    .footer a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 16px;
+      background: #4267B2;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      background: #365899;
+    }
   </style>
 </head>
 <body>
-<header>
-  <span>松誼企管 2025 Leader Trend 智慧人才佈局｜精準賦能未來領導者 互動遊戲</span>
-</header>
-<main>
-  <!-- Step 1 -->
-  <section class="card" id="quiz-section">
-    <h2 id="section-title">個人 AI 潛能測驗</h2>
-    <form id="quizForm">
-      <!-- Q1 -->
-      <div class="question">
-        <p>Q1. 當你聽到「AI 改變工作」時，你最直覺的反應是？</p>
-        <div class="options">
-          <label><input type="radio" name="q1" value="創新者" required/> A. 好奇它能帶來什麼新應用</label>
-          <label><input type="radio" name="q1" value="策略家"/> B. 思考怎麼整合到組織策略</label>
-          <label><input type="radio" name="q1" value="協作推動者"/> C. 想知道大家會怎麼適應與配合</label>
-          <label><input type="radio" name="q1" value="數據驅動者"/> D. 想看數據和案例來判斷影響</label>
-          <label><input type="radio" name="q1" value="倫理守護者"/> E. 擔心它對人性或倫理造成挑戰</label>
-        </div>
-      </div>
-      <!-- Q2 -->
-      <div class="question">
-        <p>Q2. 如果公司給你一個 AI 工具去試用，你會？</p>
-        <div class="options">
-          <label><input type="radio" name="q2" value="創新者" required/> A. 拿來實驗一些全新玩法</label>
-          <label><input type="radio" name="q2" value="策略家"/> B. 看它是否能幫助達成長期目標</label>
-          <label><input type="radio" name="q2" value="協作推動者"/> C. 找同事一起試用並交換心得</label>
-          <label><input type="radio" name="q2" value="數據驅動者"/> D. 測量它的效能、數據表現</label>
-          <label><input type="radio" name="q2" value="倫理守護者"/> E. 先研究隱私、安全與公平性</label>
-        </div>
-      </div>
-      <!-- Q3 -->
-      <div class="question">
-        <p>Q3. 在你的團隊中，你最常扮演的角色是？</p>
-        <div class="options">
-          <label><input type="radio" name="q3" value="創新者" required/> A. 點子發想者，帶來新創意</label>
-          <label><input type="radio" name="q3" value="策略家"/> B. 規劃者，制定策略與路線</label>
-          <label><input type="radio" name="q3" value="協作推動者"/> C. 溝通橋樑，幫大家整合想法</label>
-          <label><input type="radio" name="q3" value="數據驅動者"/> D. 分析師，提供數據與理性判斷</label>
-          <label><input type="radio" name="q3" value="倫理守護者"/> E. 守門人，提醒大家風險與倫理</label>
-        </div>
-      </div>
-      <!-- Q4 -->
-      <div class="question">
-        <p>Q4. 當需要快速決策時，你最倚賴的是？</p>
-        <div class="options">
-          <label><input type="radio" name="q4" value="創新者" required/> A. 靈感與直覺</label>
-          <label><input type="radio" name="q4" value="策略家"/> B. 長遠策略</label>
-          <label><input type="radio" name="q4" value="協作推動者"/> C. 團隊意見</label>
-          <label><input type="radio" name="q4" value="數據驅動者"/> D. 數據與報告</label>
-          <label><input type="radio" name="q4" value="倫理守護者"/> E. 價值與原則</label>
-        </div>
-      </div>
-      <!-- Q5 -->
-      <div class="question">
-        <p>Q5. 你認為 AI 最應該幫助人類的地方是？</p>
-        <div class="options">
-          <label><input type="radio" name="q5" value="創新者" required/> A. 開創全新的產品與服務</label>
-          <label><input type="radio" name="q5" value="策略家"/> B. 提升效率與決策品質</label>
-          <label><input type="radio" name="q5" value="協作推動者"/> C. 減少溝通障礙，增強協作</label>
-          <label><input type="radio" name="q5" value="數據驅動者"/> D. 提供科學化依據，避免盲目判斷</label>
-          <label><input type="radio" name="q5" value="倫理守護者"/> E. 協助建立更公平、安全的社會</label>
-        </div>
-      </div>
-      <!-- Q6 -->
-      <div class="question">
-        <p>Q6. 如果你有一支「AI 個人助理」，你最希望它幫你做什麼？</p>
-        <div class="options">
-          <label><input type="radio" name="q6" value="創新者" required/> A. 激發新點子，幫我腦力激盪</label>
-          <label><input type="radio" name="q6" value="策略家"/> B. 提醒我規劃與資源配置</label>
-          <label><input type="radio" name="q6" value="協作推動者"/> C. 協助安排團隊溝通與協作</label>
-          <label><input type="radio" name="q6" value="數據驅動者"/> D. 蒐集數據並做精準分析</label>
-          <label><input type="radio" name="q6" value="倫理守護者"/> E. 提醒我是否有倫理或價值衝突</label>
-        </div>
-      </div>
-      <button type="submit">提交答案</button>
-    </form>
+  <h1>個人AI 專屬潛能卡片</h1>
 
-    <div id="result" class="result-card" style="display:none"></div>
+  <div class="container" id="quizContainer">
+    <h2>Step 1：AI 潛能測驗</h2>
 
-    <!-- 下載按鈕（預設隱藏） -->
-    <div id="downloadWrap" class="download-wrap">
-      <button id="downloadBtn" class="download-btn">下載我的AI潛能卡</button>
+    <div class="question">
+      <p>1. 面對新科技，你通常會？</p>
+      <label><input type="radio" name="q1" value="innovator" required> 勇於嘗試新工具</label>
+      <label><input type="radio" name="q1" value="strategist"> 先觀察再規劃</label>
+      <label><input type="radio" name="q1" value="collaborator"> 找人一起學習</label>
+      <label><input type="radio" name="q1" value="data"> 研究資料與數據</label>
+      <label><input type="radio" name="q1" value="ethics"> 思考其社會影響</label>
     </div>
 
-    <!-- 放在卡片外框之外的引導區塊（預設隱藏） -->
-    <div id="guidance" class="guidance" style="display:none"></div>
-  </section>
-</main>
-<!-- html2canvas for download -->
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script>
-  // 粉專連結（請換成你的實際粉專網址）
-  const FANPAGE_URL = 'https://www.facebook.com/';
+    <div class="question">
+      <p>2. 你在團隊中常扮演的角色？</p>
+      <label><input type="radio" name="q2" value="collaborator" required> 協調大家意見</label>
+      <label><input type="radio" name="q2" value="innovator"> 提出新點子</label>
+      <label><input type="radio" name="q2" value="strategist"> 做長遠規劃</label>
+      <label><input type="radio" name="q2" value="data"> 分析數據</label>
+      <label><input type="radio" name="q2" value="ethics"> 提醒價值與原則</label>
+    </div>
 
-  const descriptions = {
-    "創新者":"特質：你擅長打破框架，勇於嘗試新可能，能看見 AI 帶來的嶄新契機。<br/>祝福語：願你的創新視野，成為 「智慧驅動人才策略，佈局未來領導力」 的火花。",
-    "策略家":"特質：你重視長遠規劃，能將 AI 納入整體藍圖，帶領組織穩健前行。<br/>祝福語：願你的縝密思維，助力 「AI 引領企業 HR 數位轉型」，讓未來更清晰。",
-    "協作推動者":"特質：你長於凝聚人心，懂得在人與 AI 之間搭建橋樑，推動團隊共創。<br/>祝福語：願你的協作能量，呼應 「智慧驅動人才策略，佈局未來領導力」，讓團隊更具韌性。",
-    "數據驅動者":"特質：你相信數據的力量，善於從資訊中提煉洞察，驅動決策與行動。<br/>祝福語：願你的洞察力，照亮 「AI 與數據洞察，打造未來人才藍圖」 的前行之路。",
-    "倫理守護者":"特質：你堅守價值與原則，能在 AI 發展中提醒人們回歸初心與人性。<br/>祝福語：願你的堅持，成為 「AI 引領企業 HR 數位轉型」 過程中的平衡力量。"
-  };
+    <div class="question">
+      <p>3. 當面臨挑戰時，你最先會？</p>
+      <label><input type="radio" name="q3" value="data" required> 找數據來分析</label>
+      <label><input type="radio" name="q3" value="innovator"> 試試看新方法</label>
+      <label><input type="radio" name="q3" value="strategist"> 先擬定計畫</label>
+      <label><input type="radio" name="q3" value="collaborator"> 問團隊意見</label>
+      <label><input type="radio" name="q3" value="ethics"> 考量影響是否合宜</label>
+    </div>
 
-  document.getElementById('quizForm').addEventListener('submit',async function(e){
-    e.preventDefault();
-    const data = new FormData(this);
-    const counts = {創新者:0,策略家:0,協作推動者:0,數據驅動者:0,倫理守護者:0};
-    for(const [k,v] of data.entries()){
-      counts[v]++;
-    }
-    let resultType = Object.keys(counts).reduce((a,b)=> counts[a]>=counts[b]?a:b);
+    <div class="question">
+      <p>4. 對你來說，AI 最大的價值是？</p>
+      <label><input type="radio" name="q4" value="data" required> 提供數據洞察</label>
+      <label><input type="radio" name="q4" value="innovator"> 帶來創新突破</label>
+      <label><input type="radio" name="q4" value="strategist"> 協助制定策略</label>
+      <label><input type="radio" name="q4" value="collaborator"> 改善團隊合作</label>
+      <label><input type="radio" name="q4" value="ethics"> 守護倫理價值</label>
+    </div>
 
-    // 修改區塊標題（不在卡片內顯示）
-    const titleEl = document.getElementById('section-title');
-    if(titleEl){ titleEl.textContent = '個人AI 專屬潛能卡片'; }
+    <div class="question">
+      <p>5. 你最希望 AI 幫助你的是？</p>
+      <label><input type="radio" name="q5" value="strategist" required> 做更長遠的規劃</label>
+      <label><input type="radio" name="q5" value="innovator"> 激發新點子</label>
+      <label><input type="radio" name="q5" value="collaborator"> 協助團隊共創</label>
+      <label><input type="radio" name="q5" value="data"> 提供數據依據</label>
+      <label><input type="radio" name="q5" value="ethics"> 把關價值方向</label>
+    </div>
 
-    // 隱藏題目
-    document.getElementById('quizForm').style.display='none';
+    <div class="question">
+      <p>6. 如果要用一句話形容你，你比較像？</p>
+      <label><input type="radio" name="q6" value="innovator" required> 勇於打破框架的創新者</label>
+      <label><input type="radio" name="q6" value="strategist"> 重視規劃的策略家</label>
+      <label><input type="radio" name="q6" value="collaborator"> 擅長合作的推動者</label>
+      <label><input type="radio" name="q6" value="data"> 相信數據的驅動者</label>
+      <label><input type="radio" name="q6" value="ethics"> 堅守價值的守護者</label>
+    </div>
 
-    // 顯示結果卡片
-    const resultBox = document.getElementById('result');
-    resultBox.style.display='block';
-    resultBox.innerHTML = `
-      <h3>個人AI 專屬潛能卡片</h3>
-      <p><strong>🌟 AI ${resultType}</strong></p>
-      <p>${descriptions[resultType]}</p>
-      <div class="logo-mark"><img src='logo.png' alt='logo'></div>`;
-    setTimeout(()=> resultBox.classList.add('show'),50);
+    <button onclick="submitQuiz()">提交答案</button>
+  </div>
 
-    // 在卡片外框之外顯示引導語與按鈕
-    const guide = document.getElementById('guidance');
-    guide.style.display = 'block';
-    guide.innerHTML = `
-      👉 關注松誼企管 粉絲專頁，了解更多人才發展議題<br/>
-      出示關注畫面可與工作人員領取小禮物 🎁<br/>
-      <a class="cta-btn" href="${FANPAGE_URL}" target="_blank" rel="noopener">前往粉絲專頁</a>`;
+  <div id="resultCard" class="card">
+    <h2 id="cardTitle">個人AI 專屬潛能卡片</h2>
+    <p id="cardContent"></p>
+    <img src="logo.png" alt="Logo" class="logo"/>
+  </div>
 
-    // 顯示下載按鈕
-    const dlWrap = document.getElementById('downloadWrap');
-    const dlBtn = document.getElementById('downloadBtn');
-    dlWrap.style.display='block';
-    dlBtn.onclick = async () => {
-      // 先暫時移除動畫位移避免截圖偏差
-      resultBox.classList.remove('show');
-      // 使用 html2canvas 截圖，提高清晰度
-      const canvas = await html2canvas(resultBox, {scale:2, useCORS:true, backgroundColor:'#ffffff'});
-      const link = document.createElement('a');
-      link.download = `AI_potential_card_${resultType}.png`;
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-      // 還原動畫狀態
-      setTimeout(()=> resultBox.classList.add('show'),0);
+  <div class="footer">
+    <p>👉 關注 <b>松誼企管 粉絲專頁</b> 了解更多人才發展議題<br>
+    出示關注畫面即可向工作人員領取小禮物 🎁</p>
+    <a href="https://www.facebook.com" target="_blank">立即關注</a>
+  </div>
+
+  <script>
+    const results = {
+      innovator: {
+        title: "AI 創新者",
+        feature: "你擅長打破框架，勇於嘗試新可能，能看見 AI 帶來的嶄新契機。",
+        blessing: "願你的創新視野，成為 「智慧驅動人才策略，佈局未來領導力」 的火花。"
+      },
+      strategist: {
+        title: "AI 策略家",
+        feature: "你重視長遠規劃，能將 AI 納入整體藍圖，帶領組織穩健前行。",
+        blessing: "願你的縝密思維，助力 「AI 引領企業 HR 數位轉型」，讓未來更清晰。"
+      },
+      collaborator: {
+        title: "AI 協作推動者",
+        feature: "你長於凝聚人心，懂得在人與 AI 之間搭建橋樑，推動團隊共創。",
+        blessing: "願你的協作能量，呼應 「智慧驅動人才策略，佈局未來領導力」，讓團隊更具韌性。"
+      },
+      data: {
+        title: "AI 數據驅動者",
+        feature: "你相信數據的力量，善於從資訊中提煉洞察，驅動決策與行動。",
+        blessing: "願你的洞察力，照亮 「AI 與數據洞察，打造未來人才藍圖」 的前行之路。"
+      },
+      ethics: {
+        title: "AI 倫理守護者",
+        feature: "你堅守價值與原則，能在 AI 發展中提醒人們回歸初心與人性。",
+        blessing: "願你的堅持，成為 「AI 引領企業 HR 數位轉型」 過程中的平衡力量。"
+      }
     };
 
-    resultBox.scrollIntoView({behavior:'smooth'});
-  });
-</script>
+    function submitQuiz() {
+      const answers = [];
+      for (let i = 1; i <= 6; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+          alert("請完成所有題目再提交！");
+          return;
+        }
+        answers.push(selected.value);
+      }
+
+      // 計算最多的答案
+      const count = {};
+      answers.forEach(a => { count[a] = (count[a] || 0) + 1; });
+      const resultType = Object.keys(count).reduce((a, b) => count[a] > count[b] ? a : b);
+
+      // 顯示結果卡
+      document.getElementById("quizContainer").style.display = "none";
+      const card = document.getElementById("resultCard");
+      document.getElementById("cardContent").innerHTML =
+        `<strong>${results[resultType].title}</strong><br><br>
+         特質：${results[resultType].feature}<br><br>
+         祝福語：${results[resultType].blessing}`;
+      card.classList.add("show");
+    }
+  </script>
 </body>
 </html>
