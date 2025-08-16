@@ -1,187 +1,135 @@
 <!DOCTYPE html>
- <html lang="zh-Hant">
- <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
- <title>AI 時代互動遊戲</title>
- <style>
- body {
- font-family: "Microsoft JhengHei", sans-serif;
- margin: 0;
- padding: 0;
- background: #f4f4f4;
- color: #333;
- }
- header {
- background: #4CAF50;
- color: white;
- padding: 1rem;
- text-align: center;
- font-size: 1.5rem;
- }
- main {
- padding: 1rem;
- max-width: 600px;
- margin: auto;
- }
- .step {
- background: white;
- border-radius: 8px;
- padding: 1.5rem;
- margin-bottom: 1rem;
- box-shadow: 0 2px 6px rgba(0,0,0,0.1);
- }
- .step h2 {
- margin-top: 0;
- color: #4CAF50;
- }
- .step input, .step button {
- padding: 0.6rem;
- font-size: 1rem;
- margin-top: 0.5rem;
- }
- input {
- width: 100%;
- box-sizing: border-box;
- }
- button {
- background: #4CAF50;
- color: white;
- border: none;
- cursor: pointer;
- border-radius: 4px;
- }
- button:disabled {
- background: #ccc;
- cursor: not-allowed;
- }
- .ai-response {
- font-size: 1.2rem;
- font-weight: bold;
- color: #333;
- margin-top: 1rem;
- padding: 1rem;
- background: #e8f5e9;
- border-radius: 6px;
- }
- /* Step 2 放大 */
- .big-highlight {
- font-size: 1.5rem;
- font-weight: bold;
- text-align: center;
- padding: 1rem;
- background: #fffae6;
- border: 2px solid #ffcc80;
- border-radius: 8px;
- }
- /* 管理工具區塊 */
- .admin-section {
- margin-top: 2rem;
- padding: 1rem;
- background: #eee;
- border-radius: 8px;
- font-size: 0.9rem;
- }
- </style>
- </head>
- <body>
- 
- <header>AI 時代互動遊戲</header>
- 
- <main>
- 
- <!-- Step 1 -->
- <div class="step" id="step1">
- <h2>Step 1：填答</h2>
- <label>在 AI 時代，你覺得最重要的是什麼？</label>
- <input type="text" id="keywordInput" placeholder="例如：創新、領導、系統思考">
- <button id="generateBtn">產生 AI 專屬回覆</button>
- <div id="aiResponse" class="ai-response" style="display:none;"></div>
- </div>
- 
- <!-- Step 2 -->
- <div class="step" id="step2">
- <h2>Step 2：出示畫面領獎</h2>
- <div class="big-highlight">
- 出示此畫面以及按讚松誼粉絲團畫面即可領獎！
- </div>
- </div>
- 
- <!-- Step 3 -->
- <div class="step" id="step3">
- <h2>Step 3：按讚驗證</h2>
- <button id="stampBtn">尚未領取</button>
- </div>
- 
- <!-- 管理工具區 -->
- <div class="admin-section">
- <h3>進階設定與管理工具</h3>
- <p>此區塊為主辦方管理使用，參加者可忽略。</p>
- <button onclick="resetGame()">重設遊戲</button>
- </div>
- 
- </main>
- 
- <script>
- const generateBtn = document.getElementById('generateBtn');
- const keywordInput = document.getElementById('keywordInput');
- const aiResponse = document.getElementById('aiResponse');
- const stampBtn = document.getElementById('stampBtn');
- 
- const responses = {
- "創新": [
- "未來屬於像你這樣敢想敢做的人！",
- "創新是打開未來大門的鑰匙！",
- "敢於嘗試，就是你最大的優勢！"
- ],
- "領導": [
- "真正的領導者，能點亮他人的道路！",
- "領導是影響力，也是責任！",
- "你的決策，將改變未來！"
- ],
- "系統思考": [
- "看見全局，才能掌握方向！",
- "系統思考讓你在變化中找到秩序！",
- "全盤規劃是成功的第一步！"
- ],
- "default": [
- "你的想法，正塑造著未來！",
- "每一個觀點，都是時代的火花！",
- "你的觀點，讓 AI 世界更精彩！"
- ]
- };
- 
- generateBtn.addEventListener('click', () => {
- const keyword = keywordInput.value.trim();
- if (!keyword) {
- alert("請先輸入一個關鍵詞！");
- return;
- }
- 
- let replyList = responses[keyword] || responses["default"];
- let reply = replyList[Math.floor(Math.random() * replyList.length)];
- aiResponse.textContent = reply;
- aiResponse.style.display = 'block';
- });
- 
- stampBtn.addEventListener('click', () => {
- if (stampBtn.classList.contains('on')) {
- stampBtn.classList.remove('on');
- stampBtn.textContent = "尚未領取";
- } else {
- stampBtn.classList.add('on');
- stampBtn.textContent = "已領取";
- }
- });
- 
- function resetGame() {
- keywordInput.value = "";
- aiResponse.style.display = "none";
- stampBtn.classList.remove('on');
- stampBtn.textContent = "尚未領取";
- }
- </script>
- 
- </body>
- </html>
- 
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>松誼企管 2025 Leader Trend 智慧人才佈局｜精準賦能未來領導者 互動遊戲</title>
+  <style>
+    :root{
+      --primary:#1B3C6D;
+      --bg:#f7f7f8;
+      --card:#ffffff;
+      --text:#333;
+      --muted:#6b7280;
+    }
+    body{
+      font-family: "Microsoft JhengHei", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans TC", sans-serif;
+      margin:0; padding:0; background:var(--bg); color:var(--text);
+    }
+    header{
+      background:var(--primary); color:#fff; padding:1rem; text-align:center; font-size:1.2rem; font-weight:700;
+      display:flex; align-items:center; justify-content:center; gap:.8rem;
+    }
+    header img{height:40px}
+    main{padding:1rem; max-width:720px; margin:auto}
+    .card{background:var(--card); border-radius:14px; padding:1.25rem; margin:1rem 0; box-shadow:0 6px 20px rgba(0,0,0,.06)}
+    .card h2{margin:.2rem 0 1rem; color:var(--primary)}
+    .question{margin-bottom:1rem}
+    .options{margin-top:.5rem}
+    .options label{display:block; margin:.3rem 0; cursor:pointer}
+    button{appearance:none; border:none; background:var(--primary); color:#fff; padding:.65rem 1rem; border-radius:10px; font-size:1rem; cursor:pointer; margin-top:1rem}
+    button:disabled{background:#cbd5e1; cursor:not-allowed}
+    .result-card{margin-top:1.5rem; padding:1.2rem; border:2px solid var(--primary); border-radius:12px; background:#fff}
+    .result-card h3{margin-top:0; color:var(--primary)}
+    .muted{color:var(--muted); font-size:.9rem}
+  </style>
+</head>
+<body>
+<header>
+  <img src="https://via.placeholder.com/120x40" alt="Logo"/>
+  <span>松誼企管 2025 Leader Trend 智慧人才佈局｜精準賦能未來領導者 互動遊戲</span>
+</header>
+<main>
+  <!-- Step 1 -->
+  <section class="card" id="quiz-section">
+    <h2>Step 1：AI 潛能測驗</h2>
+    <form id="quizForm">
+      <div class="question">
+        <p>Q1. 當你聽到「AI 改變工作」時，你最直覺的反應是？</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="創新者" required/> A. 好奇它能帶來什麼新應用</label>
+          <label><input type="radio" name="q1" value="策略家"/> B. 思考怎麼整合到組織策略</label>
+          <label><input type="radio" name="q1" value="協作推動者"/> C. 想知道大家會怎麼適應與配合</label>
+          <label><input type="radio" name="q1" value="數據驅動者"/> D. 想看數據和案例來判斷影響</label>
+          <label><input type="radio" name="q1" value="倫理守護者"/> E. 擔心它對人性或倫理造成挑戰</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>Q2. 如果公司給你一個 AI 工具去試用，你會？</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="創新者" required/> A. 拿來實驗一些全新玩法</label>
+          <label><input type="radio" name="q2" value="策略家"/> B. 看它是否能幫助達成長期目標</label>
+          <label><input type="radio" name="q2" value="協作推動者"/> C. 找同事一起試用並交換心得</label>
+          <label><input type="radio" name="q2" value="數據驅動者"/> D. 測量它的效能、數據表現</label>
+          <label><input type="radio" name="q2" value="倫理守護者"/> E. 先研究隱私、安全與公平性</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>Q3. 在你的團隊中，你最常扮演的角色是？</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="創新者" required/> A. 點子發想者，帶來新創意</label>
+          <label><input type="radio" name="q3" value="策略家"/> B. 規劃者，制定策略與路線</label>
+          <label><input type="radio" name="q3" value="協作推動者"/> C. 溝通橋樑，幫大家整合想法</label>
+          <label><input type="radio" name="q3" value="數據驅動者"/> D. 分析師，提供數據與理性判斷</label>
+          <label><input type="radio" name="q3" value="倫理守護者"/> E. 守門人，提醒大家風險與倫理</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>Q4. 當需要快速決策時，你最倚賴的是？</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="創新者" required/> A. 靈感與直覺</label>
+          <label><input type="radio" name="q4" value="策略家"/> B. 長遠策略</label>
+          <label><input type="radio" name="q4" value="協作推動者"/> C. 團隊意見</label>
+          <label><input type="radio" name="q4" value="數據驅動者"/> D. 數據與報告</label>
+          <label><input type="radio" name="q4" value="倫理守護者"/> E. 價值與原則</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>Q5. 你認為 AI 最應該幫助人類的地方是？</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="創新者" required/> A. 開創全新的產品與服務</label>
+          <label><input type="radio" name="q5" value="策略家"/> B. 提升效率與決策品質</label>
+          <label><input type="radio" name="q5" value="協作推動者"/> C. 減少溝通障礙，增強協作</label>
+          <label><input type="radio" name="q5" value="數據驅動者"/> D. 提供科學化依據，避免盲目判斷</label>
+          <label><input type="radio" name="q5" value="倫理守護者"/> E. 協助建立更公平、安全的社會</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>Q6. 如果你有一支「AI 個人助理」，你最希望它幫你做什麼？</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="創新者" required/> A. 激發新點子，幫我腦力激盪</label>
+          <label><input type="radio" name="q6" value="策略家"/> B. 提醒我規劃與資源配置</label>
+          <label><input type="radio" name="q6" value="協作推動者"/> C. 協助安排團隊溝通與協作</label>
+          <label><input type="radio" name="q6" value="數據驅動者"/> D. 蒐集數據並做精準分析</label>
+          <label><input type="radio" name="q6" value="倫理守護者"/> E. 提醒我是否有倫理或價值衝突</label>
+        </div>
+      </div>
+      <button type="submit">提交答案</button>
+    </form>
+    <div id="result" class="result-card" style="display:none"></div>
+  </section>
+</main>
+<script>
+  const descriptions = {
+    "創新者":"AI 創新者 – 擅長構思新穎應用，能看見技術與市場的新可能。",
+    "策略家":"AI 策略家 – 善於將 AI 納入組織長期規劃，注重資源與風險配置。",
+    "協作推動者":"AI 協作推動者 – 長於跨部門協作，能促成人與 AI 的協同工作。",
+    "數據驅動者":"AI 數據驅動者 – 習慣以數據決策，擅長把資訊轉化為行動。",
+    "倫理守護者":"AI 倫理守護者 – 注重人性、價值與規範，思考 AI 帶來的長遠影響。"
+  };
+  document.getElementById('quizForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    const data = new FormData(this);
+    const counts = {創新者:0,策略家:0,協作推動者:0,數據驅動者:0,倫理守護者:0};
+    for(const [k,v] of data.entries()){
+      counts[v]++;
+    }
+    let resultType = Object.keys(counts).reduce((a,b)=> counts[a]>=counts[b]?a:b);
+    const resultBox = document.getElementById('result');
+    resultBox.style.display='block';
+    resultBox.innerHTML = `<h3>AI 潛能名片</h3><p><strong>${descriptions[resultType].split(' – ')[0]}</strong></p><p>${descriptions[resultType].split(' – ')[1]}</p>`;
+    resultBox.scrollIntoView({behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
