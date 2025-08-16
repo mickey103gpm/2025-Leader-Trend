@@ -48,7 +48,7 @@
 <main>
   <!-- Step 1 -->
   <section class="card" id="quiz-section">
-    <h2>Step 1：AI 潛能測驗</h2>
+    <h2 id="section-title">個人AI 潛能測驗</h2>
     <form id="quizForm">
       <!-- Q1 -->
       <div class="question">
@@ -119,6 +119,8 @@
       <button type="submit">提交答案</button>
     </form>
     <div id="result" class="result-card" style="display:none"></div>
+    <!-- 放在卡片外框之外的引導區塊（預設隱藏） -->
+    <div id="guidance" class="guidance" style="display:none"></div>
   </section>
 </main>
 <script>
@@ -141,21 +143,32 @@
       counts[v]++;
     }
     let resultType = Object.keys(counts).reduce((a,b)=> counts[a]>=counts[b]?a:b);
+
+    // 修改區塊標題（不在卡片內顯示）
+    const titleEl = document.getElementById('section-title');
+    if(titleEl){ titleEl.textContent = '個人AI 專屬潛能卡片'; }
+
     // 隱藏題目
     document.getElementById('quizForm').style.display='none';
+
+    // 顯示結果卡片
     const resultBox = document.getElementById('result');
     resultBox.style.display='block';
     resultBox.innerHTML = `
       <h3>個人AI 專屬潛能卡片</h3>
       <p><strong>🌟 AI ${resultType}</strong></p>
       <p>${descriptions[resultType]}</p>
-      <div class="guidance">
-        👉 關注松誼企管 粉絲專頁，了解更多人才發展議題<br/>
-        出示關注畫面可與工作人員領取小禮物 🎁<br/>
-        <a class="cta-btn" href="${FANPAGE_URL}" target="_blank" rel="noopener">前往粉絲專頁</a>
-      </div>
       <div class="logo-mark"><img src='https://via.placeholder.com/120x40' alt='logo'></div>`;
     setTimeout(()=> resultBox.classList.add('show'),50);
+
+    // 在卡片外框之外顯示引導語與按鈕
+    const guide = document.getElementById('guidance');
+    guide.style.display = 'block';
+    guide.innerHTML = `
+      👉 關注松誼企管 粉絲專頁，了解更多人才發展議題<br/>
+      出示關注畫面可與工作人員領取小禮物 🎁<br/>
+      <a class="cta-btn" href="${FANPAGE_URL}" target="_blank" rel="noopener">前往粉絲專頁</a>`;
+
     resultBox.scrollIntoView({behavior:'smooth'});
   });
 </script>
